@@ -38,9 +38,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ComposableMvcHandler.cs" />
+    <Compile Include="ControllerExecutor.cs" />
     <Compile Include="ControllerExecutorProvider.cs" />
+    <Compile Include="ControllerMeta.cs" />
     <Compile Include="ControllerProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Typed\ReflectionBasedControllerProvider.cs" />
+    <Compile Include="Typed\TypedControllerExecutor.cs" />
+    <Compile Include="Typed\TypedControllerExecutorProvider.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Level1\Level1.csproj">
@@ -48,6 +53,7 @@
       <Name>Level1</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

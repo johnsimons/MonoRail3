@@ -1,0 +1,7 @@
+C:\dev\personal\jetta\src\Experiment\Layer2\bin\Debug\Layer2.dll
+C:\dev\personal\jetta\src\Experiment\Layer2\bin\Debug\Layer2.pdb
+C:\dev\personal\jetta\src\Experiment\Layer2\bin\Debug\Level1.dll
+C:\dev\personal\jetta\src\Experiment\Layer2\bin\Debug\Level1.pdb
+C:\dev\personal\jetta\src\Experiment\Layer2\obj\Debug\ResolveAssemblyReference.cache
+C:\dev\personal\jetta\src\Experiment\Layer2\obj\Debug\Layer2.dll
+C:\dev\personal\jetta\src\Experiment\Layer2\obj\Debug\Layer2.pdb
