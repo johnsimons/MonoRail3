@@ -43,6 +43,7 @@
     <Compile Include="ControllerMeta.cs" />
     <Compile Include="ControllerProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RequestParser.cs" />
     <Compile Include="Typed\ReflectionBasedControllerProvider.cs" />
     <Compile Include="Typed\TypedControllerExecutor.cs" />
     <Compile Include="Typed\TypedControllerExecutorProvider.cs" />

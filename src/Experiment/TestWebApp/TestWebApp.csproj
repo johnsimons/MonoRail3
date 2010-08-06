@@ -32,14 +32,11 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.Data" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Web.Extensions" />
-    <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
     <Reference Include="System.Xml" />
@@ -133,6 +130,10 @@
     <Content Include="Site.Master" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Layer2\Layer2.csproj">
+      <Project>{43F17081-B70F-4816-95CE-569767D324E9}</Project>
+      <Name>Layer2</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Level1\Level1.csproj">
       <Project>{188A7405-F116-4EE6-926D-4207920432E8}</Project>
       <Name>Level1</Name>

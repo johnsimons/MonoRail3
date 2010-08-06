@@ -3,10 +3,15 @@
     using System.Collections.Generic;
     using System.ComponentModel.Composition;
     using System.Web;
+    using System.Web.Routing;
     using Level1;
 
+    [Export(typeof(IComposableHandler))]
     public class ComposableMvcHandler : ComposableHandler
     {
+        [Import]
+        public RequestParser Parser { get; set; }
+
         [ImportMany]
         public IEnumerable<ControllerProvider> ControllerProviders { get; set; }
         
@@ -15,14 +20,16 @@
 
         public override void ProcessRequest(HttpContextBase context)
         {
-            ControllerMeta meta = InquiryProvidersForMetaController(context);
+            RouteData data = Parser.ParseDescriminators(context.Request);
+
+            ControllerMeta meta = InquiryProvidersForMetaController(data, context);
 
             if (meta == null)
                 throw new HttpException(404, "Not found");
 
             ControllerExecutor executor = null;
 
-            executor = GetExecutor(context, meta, executor);
+            executor = GetExecutor(data, context, meta);
 
             if (executor == null)
                 throw new HttpException(500, "Null executor ?!");
@@ -30,24 +37,26 @@
             executor.Process(context);
         }
 
-        private ControllerExecutor GetExecutor(HttpContextBase context, ControllerMeta meta, ControllerExecutor executor)
+        private ControllerExecutor GetExecutor(RouteData data, HttpContextBase context, ControllerMeta meta)
         {
+            ControllerExecutor executor = null;
+
             foreach(var provider in ControllerExecutorProviders)
             {
-                executor = provider.CreateExecutor(meta, context);
+                executor = provider.CreateExecutor(meta, data, context);
                 if (executor != null) break;
             }
             
             return executor;
         }
 
-        private ControllerMeta InquiryProvidersForMetaController(HttpContextBase context)
+        private ControllerMeta InquiryProvidersForMetaController(RouteData data, HttpContextBase context)
         {
             ControllerMeta meta = null;
 
             foreach(var provider in ControllerProviders)
             {
-                meta = provider.Create(context);
+                meta = provider.Create(data, context);
                 if (meta != null) break;
             }
             

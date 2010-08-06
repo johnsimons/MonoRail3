@@ -7,7 +7,7 @@
     using System.Web;
     using Internal;
 
-    public abstract class ComposableHandler : IHttpAsyncHandler, IComposableHandler
+    public abstract class ComposableHandler : IHttpHandler /*IHttpAsyncHandler*/, IComposableHandler
     {
         public abstract void ProcessRequest(HttpContextBase context);
 
@@ -36,14 +36,14 @@
             get { return false; }
         }
 
-        IAsyncResult IHttpAsyncHandler.BeginProcessRequest(HttpContext context, AsyncCallback cb, object extraData)
-        {
-            throw new NotImplementedException();
-        }
-
-        void IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
-        {
-            
-        }
+//        IAsyncResult IHttpAsyncHandler.BeginProcessRequest(HttpContext context, AsyncCallback cb, object extraData)
+//        {
+//            throw new NotImplementedException();
+//        }
+//
+//        void IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
+//        {
+//            
+//        }
     }
 }

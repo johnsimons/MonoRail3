@@ -2,6 +2,7 @@
 {
     using System;
     using System.ComponentModel.Composition.Hosting;
+    using System.IO;
 
     static class ContainerHolder
     {
@@ -26,7 +27,9 @@
 
         private static CompositionContainer CreateContainer()
         {
-            var container = new CompositionContainer(); // needs to be made thread-safe
+            var path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "bin");
+            var catalog = new DirectoryCatalog(path);
+            var container = new CompositionContainer(catalog); // needs to be made thread-safe
 
             return container;
         }
