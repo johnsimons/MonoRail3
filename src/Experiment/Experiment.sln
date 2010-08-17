@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Level1", "Level1\Level1.csproj", "{188A7405-F116-4EE6-926D-4207920432E8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Layer1", "Level1\Layer1.csproj", "{188A7405-F116-4EE6-926D-4207920432E8}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestWebApp", "TestWebApp\TestWebApp.csproj", "{27700E34-78A5-4A6F-8ACA-2466C7EF235C}"
 EndProject

@@ -49,9 +49,9 @@
     <Compile Include="Typed\TypedControllerExecutorProvider.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Level1\Level1.csproj">
+    <ProjectReference Include="..\Level1\Layer1.csproj">
       <Project>{188A7405-F116-4EE6-926D-4207920432E8}</Project>
-      <Name>Level1</Name>
+      <Name>Layer1</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />

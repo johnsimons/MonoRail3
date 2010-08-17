@@ -1,4 +1,4 @@
-﻿namespace Level1
+﻿namespace Layer1
 {
     using System;
     using System.ComponentModel.Composition.Hosting;

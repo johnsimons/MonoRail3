@@ -134,9 +134,9 @@
       <Project>{43F17081-B70F-4816-95CE-569767D324E9}</Project>
       <Name>Layer2</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Level1\Level1.csproj">
+    <ProjectReference Include="..\Level1\Layer1.csproj">
       <Project>{188A7405-F116-4EE6-926D-4207920432E8}</Project>
-      <Name>Level1</Name>
+      <Name>Layer1</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

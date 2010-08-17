@@ -1,4 +1,4 @@
-﻿namespace Level1.Internal
+﻿namespace Layer1.Internal
 {
     using System;
     using System.ComponentModel.Composition.Hosting;
