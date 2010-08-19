@@ -42,6 +42,7 @@
     <Compile Include="ControllerExecutorProvider.cs" />
     <Compile Include="ControllerMeta.cs" />
     <Compile Include="ControllerProvider.cs" />
+    <Compile Include="IRequestSink.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RequestParser.cs" />
     <Compile Include="Typed\ReflectionBasedControllerProvider.cs" />

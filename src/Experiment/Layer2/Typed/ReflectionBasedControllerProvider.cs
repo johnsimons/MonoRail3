@@ -51,12 +51,21 @@
         IEnumerable<Assembly> Assemblies { get; }
     }
 
-    [Export(typeof(IAssembliesSource))]
-    public class BuildManagerAssembliesSource : IAssembliesSource
-    {
-        public IEnumerable<Assembly> Assemblies
-        {
-            get { return BuildManager.CodeAssemblies.Cast<Assembly>(); }
-        }
-    }
+	//[Export(typeof(IAssembliesSource))]
+	//public class BuildManagerAssembliesSource : IAssembliesSource
+	//{
+	//    public IEnumerable<Assembly> Assemblies
+	//    {
+	//        get { return BuildManager.CodeAssemblies.Cast<Assembly>(); }
+	//    }
+	//}
+
+	[Export(typeof(IAssembliesSource))]
+	public class AppDomainAssembliesSource : IAssembliesSource
+	{
+		public IEnumerable<Assembly> Assemblies
+		{
+			get { return AppDomain.CurrentDomain.GetAssemblies(); }
+		}
+	}
 }

@@ -1,17 +1,27 @@
 ﻿namespace Layer2.Typed
 {
-    using System;
     using System.Web;
+    using System.Web.Routing;
 
-    public class TypedControllerExecutor : ControllerExecutor
+	public class TypedControllerExecutor : ControllerExecutor
     {
-        public TypedControllerExecutor(object controller)
-        {
-        }
+    	private readonly object controller;
+		private readonly RouteData data;
 
-        public override void Process(HttpContextBase context)
-        {
-            throw new NotImplementedException();
+		public TypedControllerExecutor(object controller, RouteData data)
+    	{
+    		this.controller = controller;
+    		this.data = data;
+    	}
+
+		public override void Process(HttpContextBase context)
+    	{
+    		var invocationCtx = new InvocationContext {HttpContext = context, Controller = controller, RouteData = data};
+
+    		foreach (var rs in RequestSink)
+    		{
+    			rs.Invoke(invocationCtx);
+    		}
         }
     }
 }

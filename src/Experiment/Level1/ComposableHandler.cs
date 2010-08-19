@@ -25,7 +25,7 @@
             ContainerHolder.GetOrCreate().Compose(batch);
 #if DEBUG
             watch.Stop();
-            Debugger.Log(1, "Perf", "Handler composition took " + watch.ElapsedMilliseconds + " ms");
+            Debugger.Log(1, "Perf", "Handler composition took " + watch.ElapsedMilliseconds + " ms \r\n");
 #endif
 
             ProcessRequest(new HttpContextWrapper(context));
