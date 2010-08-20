@@ -1,6 +1,5 @@
 ﻿namespace Layer2.Typed
 {
-    using System.Collections.Generic;
     using System.Linq;
     using System.Web;
     using System.Web.Routing;
@@ -9,12 +8,23 @@
     {
         public override ControllerExecutor CreateExecutor(ControllerMeta meta, RouteData data, HttpContextBase context)
         {
-            return new TypedControllerExecutor(meta.ControllerInstance, data){RequestSink = GetOrderedSink()};
+            return new TypedControllerExecutor(meta.ControllerInstance, data){RequestSink = BuildSink()};
         }
 
-    	private IEnumerable<IRequestSink> GetOrderedSink()
+    	private IRequestSink BuildSink()
     	{
-    		return AvailableRequestSinks.OrderBy(lazy => lazy.Metadata.Order).Select(lazy => lazy.Value);
+    		var ordered = AvailableRequestSinks.OrderByDescending(lazy => lazy.Metadata.Order).Select(lazy => lazy.Value);
+
+    		IRequestSink head = null;
+
+			foreach (var sink in ordered)
+			{
+				sink.Next = head;
+
+				head = sink;
+			}
+
+    		return head;
     	}
     }
 }

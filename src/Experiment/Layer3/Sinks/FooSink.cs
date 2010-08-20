@@ -8,9 +8,13 @@
 	[RequestSinkConfig(Order = 1)]
 	public class FooSink  : IRequestSink
 	{
+		public IRequestSink Next { get; set; }
+
 		public void Invoke(InvocationContext context)
 		{
 			context.HttpContext.Items["text"] = "monorail";
+
+			if (Next != null) Next.Invoke(context);
 		}
 	}
 }

@@ -7,6 +7,8 @@
 
 	public interface IRequestSink
 	{
+		IRequestSink Next { get; set; }
+
 		void Invoke(InvocationContext invocationCtx);
 	}
 

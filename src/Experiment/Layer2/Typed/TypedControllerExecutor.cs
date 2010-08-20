@@ -18,10 +18,7 @@
     	{
     		var invocationCtx = new InvocationContext {HttpContext = context, Controller = controller, RouteData = data};
 
-    		foreach (var rs in RequestSink)
-    		{
-    			rs.Invoke(invocationCtx);
-    		}
-        }
+			RequestSink.Invoke(invocationCtx);
+    	}
     }
 }
