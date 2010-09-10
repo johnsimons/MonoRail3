@@ -7,9 +7,11 @@ src/*/obj
 src/*/bin
 *.csproj.user
 _ReSharper*
-*ReSharper.*
-*.resharper.user
-*.resharper
+*.ReSharper
+*.user
 *.suo
 *.cache
 * Thumbs.db
+*.csproj.ReSharper
+
+*.orig

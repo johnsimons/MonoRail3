@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Security;
-using System.Web.SessionState;
-
-namespace TestWebApp
+﻿namespace TestWebApp
 {
+    using System;
     using System.Web.Routing;
     using Layer1.Mvc;
 
@@ -35,5 +29,5 @@ namespace TestWebApp
         void Application_Error(object sender, EventArgs e)
         {
         }
-    }
+	}
 }
