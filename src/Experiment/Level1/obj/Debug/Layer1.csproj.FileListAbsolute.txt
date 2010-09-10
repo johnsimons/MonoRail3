@@ -1,0 +1,10 @@
+C:\dev\personal\jetta\src\Experiment\Level1\bin\Debug\CodeContracts\Layer1.Contracts.dll
+C:\dev\personal\jetta\src\Experiment\Level1\bin\Debug\CodeContracts\Layer1.Contracts.pdb
+C:\dev\personal\jetta\src\Experiment\Level1\bin\Debug\Layer1.dll
+C:\dev\personal\jetta\src\Experiment\Level1\bin\Debug\Layer1.pdb
+C:\dev\personal\jetta\src\Experiment\Level1\obj\Debug\ResolveAssemblyReference.cache
+C:\dev\personal\jetta\src\Experiment\Level1\obj\Debug\Decl\Layer1.dll
+C:\dev\personal\jetta\src\Experiment\Level1\obj\Debug\Decl\Layer1.pdb
+C:\dev\personal\jetta\src\Experiment\Level1\obj\Debug\Layer1.rewritten
+C:\dev\personal\jetta\src\Experiment\Level1\obj\Debug\Layer1.dll
+C:\dev\personal\jetta\src\Experiment\Level1\obj\Debug\Layer1.pdb

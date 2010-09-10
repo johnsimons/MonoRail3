@@ -33,7 +33,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
-    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.ComponentModel.Composition.Codeplex">
+      <HintPath>..\..\..\lib\System.ComponentModel.Composition.Codeplex.dll</HintPath>
+    </Reference>
     <Reference Include="System.Data" />
     <Reference Include="System.Core" />
     <Reference Include="System.Web.Extensions" />
@@ -103,6 +105,7 @@
     <Compile Include="Account\Register.aspx.designer.cs">
       <DependentUpon>Register.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -130,13 +133,9 @@
     <Content Include="Site.Master" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Layer2\Layer2.csproj">
-      <Project>{43F17081-B70F-4816-95CE-569767D324E9}</Project>
-      <Name>Layer2</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Level1\Level1.csproj">
+    <ProjectReference Include="..\Level1\Castle.MonoRail.csproj">
       <Project>{188A7405-F116-4EE6-926D-4207920432E8}</Project>
-      <Name>Level1</Name>
+      <Name>Castle.MonoRail</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

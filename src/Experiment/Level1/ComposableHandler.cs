@@ -1,6 +1,5 @@
-﻿namespace Level1
+﻿namespace Layer1
 {
-    using System;
     using System.ComponentModel.Composition.Hosting;
     using System.ComponentModel.Composition;
     using System.Diagnostics;
@@ -12,20 +11,22 @@
         public abstract void ProcessRequest(HttpContextBase context);
 
 #if DEBUG
-        Stopwatch watch = new Stopwatch();
+        private Stopwatch _watch = new Stopwatch();
 #endif
 
+        // non-disposables being added to container: fine
+        // no state changes
         void IHttpHandler.ProcessRequest(HttpContext context)
         {
 #if DEBUG
-            watch.Reset();
+            _watch.Reset();
 #endif
             var batch = new CompositionBatch();
             batch.AddPart(this);
-            ContainerHolder.GetOrCreate().Compose(batch);
+            ContainerManager.GetRequestContainer().Compose(batch);
 #if DEBUG
-            watch.Stop();
-            Debugger.Log(1, "Perf", "Handler composition took " + watch.ElapsedMilliseconds + " ms");
+            _watch.Stop();
+            Debugger.Log(1, "Perf", "Handler composition took " + _watch.ElapsedMilliseconds + " ms");
 #endif
 
             ProcessRequest(new HttpContextWrapper(context));
