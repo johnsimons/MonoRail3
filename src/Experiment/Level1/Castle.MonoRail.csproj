@@ -77,6 +77,8 @@
     <Compile Include="Mvc\Internal\IAssembliesSource.cs" />
     <Compile Include="Mvc\MvcRouteHandler.cs" />
     <Compile Include="Mvc\RequestParser.cs" />
+    <Compile Include="Mvc\Typed\ActionInvocationContext.cs" />
+    <Compile Include="Mvc\Typed\IRequestSink.cs" />
     <Compile Include="Mvc\Typed\ReflectionBasedControllerProvider.cs" />
     <Compile Include="Mvc\Typed\TypedControllerExecutor.cs" />
     <Compile Include="Mvc\Typed\TypedControllerExecutorProvider.cs" />

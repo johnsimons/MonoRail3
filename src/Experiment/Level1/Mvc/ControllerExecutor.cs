@@ -6,8 +6,6 @@
 
     public abstract class ControllerExecutor
     {
-		public IRequestSink RequestSink { get; set; }
-
         public abstract void Process(HttpContextBase context);
     }
 }

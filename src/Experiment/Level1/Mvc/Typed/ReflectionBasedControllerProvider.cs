@@ -44,10 +44,11 @@
             var controller = Activator.CreateInstance(controllerType);
             var meta = new ControllerMeta(controller);
 
-            var action = (string)data.Values["action"]; 
 
-            meta.Metadata["controller.from"] = "simpletype";
-            meta.Metadata["controller.action"] = action;
+            // Who should read the action - preferably only once
+//            var action = (string)data.Values["action"];
+//            meta.Metadata["controller.from"] = "simpletype";
+//            meta.Metadata["controller.action"] = action;
 
             return meta;
         }
