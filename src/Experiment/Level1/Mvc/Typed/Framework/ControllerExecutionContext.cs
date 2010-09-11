@@ -1,5 +1,6 @@
 ﻿namespace Castle.MonoRail.Mvc.Typed
 {
+    using System.Reflection;
     using System.Web;
     using System.Web.Routing;
 
@@ -11,6 +12,8 @@
             this.Controller = controller;
             this.RouteData = data;
         }
+
+        public MethodInfo ActionMethod { get; set; }
 
         public HttpContextBase HttpContext { get; private set; }
 

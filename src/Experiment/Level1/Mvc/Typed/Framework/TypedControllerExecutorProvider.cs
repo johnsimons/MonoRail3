@@ -1,6 +1,5 @@
 ﻿namespace Layer2.Typed
 {
-    using System;
     using System.ComponentModel.Composition;
     using System.Web;
     using System.Web.Routing;
@@ -16,6 +15,7 @@
             var executor = ExecutorFactory.CreateExport().Value;
 
             executor.Meta = meta;
+            executor.RouteData = data;
 
             return executor;
         }

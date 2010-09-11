@@ -1,9 +1,10 @@
 
 /build
-/src/Experiment/Level1/bin/Debug
-/src/Experiment/Level1/obj/Debug
+/src/Experiment/Level1/bin/
+/src/Experiment/Level1/obj/
+/src/Experiment/TestWebApp/bin/
 /src/Experiment/TestWebApp/obj/
-/src/Experiment/TestWebApp/Bin/
+
 AssemblyInfo.cs
 
 # Standard VS.NET and ReSharper Foo

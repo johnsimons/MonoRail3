@@ -2,18 +2,22 @@
 {
     using System;
     using System.ComponentModel.Composition;
+    using System.Reflection;
 
     [Export(typeof(IActionResolutionSink))]
     public class ActionResolutionSink : BaseControllerExecutionSink, IActionResolutionSink
     {
+        private const BindingFlags flags = BindingFlags.Public | BindingFlags.Instance | BindingFlags.IgnoreCase;
+
         public override void Invoke(ControllerExecutionContext executionCtx)
         {
-//            var action = (string) Meta.Metadata["controller.action"];
-//
-//            var actionMethod = Meta.ControllerInstance.GetType().GetMethod(action, BindingFlags.Public | BindingFlags.Instance | BindingFlags.IgnoreCase);
-//
-//            actionMethod.Invoke(Meta.ControllerInstance, new object[0]);
+            var action = executionCtx.RouteData.GetRequiredString("action");
+            var instance = executionCtx.Controller;
 
+            var actionMethod = instance.GetType().GetMethod(action, flags);
+            executionCtx.ActionMethod = actionMethod;
+
+            Proceed(executionCtx);
         }
     }
 }

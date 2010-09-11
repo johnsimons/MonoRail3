@@ -7,24 +7,25 @@
     using System.Linq;
     using System.Reflection;
     using System.Web;
+    using System.Web.Routing;
     using Castle.MonoRail.Mvc.Typed;
 
     [Export]
     public class TypedControllerExecutor : ControllerExecutor
     {
-        private ICollection<ExportFactory<IActionResolutionSink>> _firstSinksFactory;
-        private ICollection<ExportFactory<IAuthorizationSink>> _secondSinksFactory;
-        private ICollection<ExportFactory<IPreActionExecutionSink>> _thirdSinksFactory;
-        private ICollection<ExportFactory<IActionExecutionSink>> _forthSinksFactory;
-        private ICollection<ExportFactory<IActionResultSink>> _fifthSinksFactory;
+        private ExportFactory<IActionResolutionSink>[] _firstSinksFactory;
+        private ExportFactory<IAuthorizationSink>[] _secondSinksFactory;
+        private ExportFactory<IPreActionExecutionSink>[] _thirdSinksFactory;
+        private ExportFactory<IActionExecutionSink>[] _forthSinksFactory;
+        private ExportFactory<IActionResultSink>[] _fifthSinksFactory;
 
         [ImportingConstructor]
         public TypedControllerExecutor(
-            [ImportMany] ICollection<ExportFactory<IActionResolutionSink>> firstSinksFactory,
-            [ImportMany] ICollection<ExportFactory<IAuthorizationSink>> secondSinksFactory,
-            [ImportMany] ICollection<ExportFactory<IPreActionExecutionSink>> thirdSinksFactory,
-            [ImportMany] ICollection<ExportFactory<IActionExecutionSink>> forthSinksFactory,
-            [ImportMany] ICollection<ExportFactory<IActionResultSink>> fifthSinksFactory)
+            [ImportMany] ExportFactory<IActionResolutionSink>[] firstSinksFactory,
+            [ImportMany] ExportFactory<IAuthorizationSink>[] secondSinksFactory,
+            [ImportMany] ExportFactory<IPreActionExecutionSink>[] thirdSinksFactory,
+            [ImportMany] ExportFactory<IActionExecutionSink>[] forthSinksFactory,
+            [ImportMany] ExportFactory<IActionResultSink>[] fifthSinksFactory)
         {
             _firstSinksFactory = firstSinksFactory;
             _secondSinksFactory = secondSinksFactory;
@@ -34,6 +35,7 @@
         }
 
         public ControllerMeta Meta;
+        public RouteData RouteData;
 
         public override void Process(HttpContextBase context)
         {
@@ -49,9 +51,10 @@
                 // need exception model
                 throw new Exception("No sink for action resolution?");
 
-            var invocationCtx = new ControllerExecutionContext(context, Meta.ControllerInstance, null);
-            first.Invoke(invocationCtx);
+            var invCtx = new ControllerExecutionContext(
+                context, this.Meta.ControllerInstance, this.RouteData);
 
+            first.Invoke(invCtx);
         }
 
         private static IControllerExecutionSink

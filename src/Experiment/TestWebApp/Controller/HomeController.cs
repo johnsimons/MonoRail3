@@ -5,9 +5,9 @@
 	public class HomeController
 	{
 
-		public void Index(HttpContextBase contextBase)
+		public void Index()
 		{
-			contextBase.Response.Write(contextBase.Items["text"]);
+			// contextBase.Response.Write(contextBase.Items["text"]);
 		}
 
 
