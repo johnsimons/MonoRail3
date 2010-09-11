@@ -7,6 +7,7 @@
     using System.Linq;
     using System.Web;
     using System.Web.Routing;
+    using Castle.MonoRail.Mvc.Typed.Framework.Internal;
 
     [PartCreationPolicy(CreationPolicy.Shared)]
     public class ReflectionBasedControllerProvider : ControllerProvider

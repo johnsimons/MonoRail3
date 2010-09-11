@@ -1,4 +1,4 @@
-﻿namespace Layer2.Typed
+﻿namespace Castle.MonoRail.Mvc.Typed.Framework.Internal
 {
     using System.Collections.Generic;
     using System.ComponentModel.Composition;

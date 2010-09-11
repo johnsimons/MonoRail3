@@ -34,7 +34,7 @@
 
         bool IHttpHandler.IsReusable
         {
-            get { return false; }
+            get { return true; }
         }
 
 //        IAsyncResult IHttpAsyncHandler.BeginProcessRequest(HttpContext context, AsyncCallback cb, object extraData)

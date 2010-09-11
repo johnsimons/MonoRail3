@@ -4,14 +4,20 @@
 
 	public class HomeController
 	{
+
 		public void Index(HttpContextBase contextBase)
 		{
 			contextBase.Response.Write(contextBase.Items["text"]);
 		}
 
-		public void Blah(HttpContextWrapper wrapper)
-		{
-			wrapper.Response.Write("blah");
-		}
+
+//        [RespondToHtml, RespondToJSon, RespondToXml]
+//		public User Blah(HttpContextWrapper wrapper)
+//		{
+//			wrapper.Response.Write("blah");
+//
+		    // Respond( format => format.Html() );
+//
+//		}
 	}
 }

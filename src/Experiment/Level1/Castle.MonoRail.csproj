@@ -77,8 +77,14 @@
     <Compile Include="Mvc\Internal\IAssembliesSource.cs" />
     <Compile Include="Mvc\MvcRouteHandler.cs" />
     <Compile Include="Mvc\RequestParser.cs" />
-    <Compile Include="Mvc\Typed\ActionInvocationContext.cs" />
-    <Compile Include="Mvc\Typed\IRequestSink.cs" />
+    <Compile Include="Mvc\Typed\ActionResolutionSink.cs" />
+    <Compile Include="Mvc\Typed\ControllerExecutionContext.cs" />
+    <Compile Include="Mvc\Typed\IControllerExecutionSink.IActionResolutionSink.cs" />
+    <Compile Include="Mvc\Typed\IControllerExecutionSink.IAuthorizationSink.cs" />
+    <Compile Include="Mvc\Typed\IControllerExecutionSink.IPreActionExecutionSink.cs" />
+    <Compile Include="Mvc\Typed\IControllerExecutionSink.IActionExecutionSink.cs" />
+    <Compile Include="Mvc\Typed\IControllerExecutionSink.IActionResultSink.cs" />
+    <Compile Include="Mvc\Typed\IControllerExecutionSink.cs" />
     <Compile Include="Mvc\Typed\ReflectionBasedControllerProvider.cs" />
     <Compile Include="Mvc\Typed\TypedControllerExecutor.cs" />
     <Compile Include="Mvc\Typed\TypedControllerExecutorProvider.cs" />

@@ -3,9 +3,9 @@
     using System.Web;
     using System.Web.Routing;
 
-    public sealed class ActionInvocationContext
+    public sealed class ControllerExecutionContext
     {
-        internal ActionInvocationContext(HttpContextBase httpContext, object controller, RouteData data)
+        internal ControllerExecutionContext(HttpContextBase httpContext, object controller, RouteData data)
         {
             this.HttpContext = httpContext;
             this.Controller = controller;
