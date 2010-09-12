@@ -65,7 +65,7 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <ProjectReference Include="..\Level1\Castle.MonoRail.csproj">
+    <ProjectReference Include="..\Castle.MonoRail\Castle.MonoRail.csproj">
       <Project>{188A7405-F116-4EE6-926D-4207920432E8}</Project>
       <Name>Castle.MonoRail</Name>
     </ProjectReference>
