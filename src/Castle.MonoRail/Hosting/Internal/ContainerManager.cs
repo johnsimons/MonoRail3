@@ -89,7 +89,7 @@ namespace Castle.MonoRail.Hosting.Internal
             var path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "bin");
             var catalog = new DirectoryCatalog(path);
 
-            var partitioned = new PartitionedCatalog(catalog, p => p.IsShared());
+            var partitioned = new PartitionedCatalog(catalog, p => !p.IsShared());
             _requestCatalog = partitioned;
             _catalog = partitioned.Complement;
 

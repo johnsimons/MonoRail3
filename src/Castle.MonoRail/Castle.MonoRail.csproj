@@ -63,6 +63,8 @@
     <Reference Include="System.Web" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Hosting\Mvc\CompositeViewEngine.cs" />
+    <Compile Include="Hosting\Mvc\BaseMvcContext.cs" />
     <Compile Include="FilterProvider.cs" />
     <Compile Include="Hosting\ComposableHandler.cs" />
     <Compile Include="Hosting\IComposableHandler.cs" />
@@ -70,21 +72,40 @@
     <Compile Include="Hosting\Internal\ContainerManager.cs" />
     <Compile Include="Hosting\Internal\PartitionedCatalog.cs" />
     <Compile Include="Hosting\Mvc\ComposableMvcHandler.cs" />
-    <Compile Include="Hosting\Mvc\Typed\Internal\ActionDescriptor.cs" />
-    <Compile Include="Hosting\Mvc\Typed\Internal\ControllerDescriptorBuilder.cs" />
-    <Compile Include="Hosting\Mvc\Typed\Internal\FilterDescriptor.cs" />
-    <Compile Include="Hosting\Mvc\Typed\Internal\MethodInfoActionDescriptor.cs" />
-    <Compile Include="Hosting\Mvc\Typed\Internal\ParameterDescriptor.cs" />
+    <Compile Include="Hosting\Mvc\Internal\HttpHandlerUtil.cs" />
+    <Compile Include="Hosting\Mvc\IView.cs" />
+    <Compile Include="Hosting\Mvc\IViewEngine.cs" />
+    <Compile Include="Hosting\Mvc\Typed\ActionDescriptor.cs" />
+    <Compile Include="Hosting\Mvc\Typed\ActionResultExecutionSink.cs" />
+    <Compile Include="Hosting\Mvc\Typed\ControllerDescriptor.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Hosting\Mvc\Typed\ControllerDescriptorBuilder.cs" />
+    <Compile Include="Hosting\Mvc\Typed\FilterDescriptor.cs" />
+    <Compile Include="Hosting\Mvc\Typed\Internal\IWebFormFactory.cs" />
+    <Compile Include="Hosting\Mvc\Typed\Internal\MonoRailServices.cs" />
+    <Compile Include="Hosting\Mvc\Typed\MethodInfoActionDescriptor.cs" />
+    <Compile Include="Hosting\Mvc\Typed\ParameterDescriptor.cs" />
     <Compile Include="Hosting\Mvc\Typed\TypedControllerMeta.cs" />
+    <Compile Include="Hosting\Mvc\ViewContext.cs" />
+    <Compile Include="Hosting\Mvc\ViewEngineResult.cs" />
+    <Compile Include="Hosting\Mvc\VirtualPathProviderViewEngine.cs" />
+    <Compile Include="Hosting\Mvc\WebFormsViewEngine.cs" />
+    <Compile Include="Hosting\Mvc\WebFormView.cs" />
     <Compile Include="IExceptionFilter.cs" />
+    <Compile Include="IMonoRailServices.cs" />
+    <Compile Include="Messages.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Messages.resx</DependentUpon>
+    </Compile>
     <Compile Include="Primitives\ControllerExecutor.cs" />
     <Compile Include="Primitives\ControllerExecutorProvider.cs" />
     <Compile Include="Primitives\ControllerMeta.cs" />
     <Compile Include="Primitives\ControllerProvider.cs" />
     <Compile Include="ActionResult.cs" />
     <Compile Include="Hosting\Mvc\Typed\ActionExecutionSink.cs" />
-    <Compile Include="Hosting\Mvc\Typed\Internal\BuildManagerAssembliesSource.cs" />
-    <Compile Include="Hosting\Mvc\Typed\Internal\ControllerDescriptor.cs" />
+    <Compile Include="Hosting\Mvc\Typed\Internal\BuildManagerWrap.cs" />
     <Compile Include="Hosting\Mvc\Typed\Internal\IAssembliesSource.cs" />
     <Compile Include="Hosting\Mvc\MvcRouteHandler.cs" />
     <Compile Include="Hosting\Mvc\RequestParser.cs" />
@@ -103,8 +124,17 @@
     <Compile Include="Hosting\Mvc\Typed\TypedControllerExecutor.cs" />
     <Compile Include="Hosting\Mvc\Typed\TypedControllerExecutorProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewResult.cs" />
+    <Compile Include="WebForms\ViewPage.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Messages.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Messages.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

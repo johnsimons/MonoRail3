@@ -3,7 +3,6 @@ namespace Castle.MonoRail.Hosting.Mvc.Typed
     using System;
     using System.Linq;
     using System.ComponentModel.Composition;
-    using System.Reflection;
     using System.Web;
 
     [Export(typeof(IActionResolutionSink))]

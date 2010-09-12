@@ -1,5 +1,6 @@
 namespace Castle.MonoRail.Hosting.Mvc.Typed.Internal
 {
+    using System;
     using System.Collections.Generic;
     using System.ComponentModel.Composition;
     using System.Linq;
@@ -7,9 +8,15 @@ namespace Castle.MonoRail.Hosting.Mvc.Typed.Internal
     using System.Web.Compilation;
 
     [Export(typeof(IAssembliesSource))]
+    [Export(typeof(IWebFormFactory))]
     [PartCreationPolicy(CreationPolicy.Shared)]
-    public class BuildManagerAssembliesSource : IAssembliesSource
+    public class BuildManagerWrap : IAssembliesSource, IWebFormFactory
     {
+        public object CreateInstanceFromVirtualPath(string path, Type baseType)
+        {
+            return BuildManager.CreateInstanceFromVirtualPath(path, baseType);
+        }
+
         public IEnumerable<Assembly> Assemblies
         {
             // should it lazy initialize a field value?

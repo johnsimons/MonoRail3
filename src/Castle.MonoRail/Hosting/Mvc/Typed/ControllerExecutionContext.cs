@@ -14,7 +14,7 @@ namespace Castle.MonoRail.Hosting.Mvc.Typed
             this.HttpContext = httpContext;
             this.Controller = controller;
             this.RouteData = data;
-            ControllerDescriptor = controllerDescriptor;
+            this.ControllerDescriptor = controllerDescriptor;
         }
 
         // readonly
@@ -23,6 +23,8 @@ namespace Castle.MonoRail.Hosting.Mvc.Typed
         public RouteData RouteData { get; private set; }
         public ControllerDescriptor ControllerDescriptor { get; private set; }
 
+        // writable
         public ActionDescriptor SelectedAction { get; set; }
+        public object InvocationResult { get; set; }
     }
 }

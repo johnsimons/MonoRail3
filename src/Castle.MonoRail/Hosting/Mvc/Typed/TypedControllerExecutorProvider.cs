@@ -6,7 +6,6 @@ namespace Castle.MonoRail.Hosting.Mvc.Typed
     using Primitives;
 
     [Export(typeof(ControllerExecutorProvider))]
-    [PartCreationPolicy(CreationPolicy.Shared)]
     public class TypedControllerExecutorProvider : ControllerExecutorProvider
     {
         [Import]

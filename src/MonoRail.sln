@@ -7,7 +7,21 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestWebApp", "TestWebApp\Te
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Castle.MonoRail.Ruby", "Castle.MonoRail.Ruby\Castle.MonoRail.Ruby.csproj", "{E405ECE1-00B2-4E37-BED5-520C8867AEA2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Castle.MonoRail.Tests", "Castle.MonoRail.Tests\Castle.MonoRail.Tests.csproj", "{E27F57E9-DA50-4ABA-ACBC-9B53CC01A77C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{478A2981-D219-4E04-B13C-37424F1BA4A0}"
+	ProjectSection(SolutionItems) = preProject
+		Local.testsettings = Local.testsettings
+		MonoRail.vsmdi = MonoRail.vsmdi
+		TraceAndTestImpact.testsettings = TraceAndTestImpact.testsettings
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Castle.MonoRail.Razor", "Castle.MonoRail.Razor\Castle.MonoRail.Razor.csproj", "{878C7162-F920-4C76-88C0-DEDF2B438B0C}"
+EndProject
 Global
+	GlobalSection(TestCaseManagementSettings) = postSolution
+		CategoryFile = MonoRail.vsmdi
+	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
@@ -25,6 +39,14 @@ Global
 		{E405ECE1-00B2-4E37-BED5-520C8867AEA2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E405ECE1-00B2-4E37-BED5-520C8867AEA2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E405ECE1-00B2-4E37-BED5-520C8867AEA2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E27F57E9-DA50-4ABA-ACBC-9B53CC01A77C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E27F57E9-DA50-4ABA-ACBC-9B53CC01A77C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E27F57E9-DA50-4ABA-ACBC-9B53CC01A77C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E27F57E9-DA50-4ABA-ACBC-9B53CC01A77C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{878C7162-F920-4C76-88C0-DEDF2B438B0C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{878C7162-F920-4C76-88C0-DEDF2B438B0C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{878C7162-F920-4C76-88C0-DEDF2B438B0C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{878C7162-F920-4C76-88C0-DEDF2B438B0C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

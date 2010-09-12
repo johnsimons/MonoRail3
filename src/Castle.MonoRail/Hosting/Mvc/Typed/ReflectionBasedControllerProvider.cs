@@ -7,7 +7,6 @@ namespace Castle.MonoRail.Hosting.Mvc.Typed
     using System.Linq;
     using System.Web;
     using System.Web.Routing;
-    using Hosting.Mvc.Typed;
     using Hosting.Mvc.Typed.Internal;
     using Primitives;
 

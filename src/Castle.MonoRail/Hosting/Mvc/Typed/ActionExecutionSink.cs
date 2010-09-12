@@ -8,7 +8,11 @@
     {
         public override void Invoke(ControllerExecutionContext executionCtx)
         {
-            executionCtx.SelectedAction.Action(executionCtx.Controller, new object[0]);
+            var result = executionCtx.SelectedAction.Action(executionCtx.Controller, new object[0]);
+
+            executionCtx.InvocationResult = result;
+
+            Proceed(executionCtx);
         }
     }
 }

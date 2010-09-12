@@ -7,7 +7,6 @@
     using Primitives;
 
     [Export]
-    [PartCreationPolicy(CreationPolicy.Shared)]
     public class PipelineRunner
     {
         [ImportMany]
