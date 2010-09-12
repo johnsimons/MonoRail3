@@ -1,4 +1,4 @@
-﻿namespace Castle.MonoRail.Framework
+﻿namespace Castle.MonoRail.Hosting.Mvc.Typed
 {
     using System;
     using System.Collections.Generic;
@@ -6,7 +6,7 @@
     using System.Diagnostics.Contracts;
     using System.Web;
     using System.Web.Routing;
-    using Primitives;
+    using Castle.MonoRail.Primitives;
 
     [Export]
     public class TypedControllerExecutor : ControllerExecutor
@@ -32,7 +32,7 @@
             _fifthSinksFactory = fifthSinksFactory;
         }
 
-        public ControllerMeta Meta;
+        public TypedControllerMeta Meta;
         public RouteData RouteData;
 
         public override void Process(HttpContextBase context)
@@ -50,7 +50,7 @@
                 throw new Exception("No sink for action resolution?");
 
             var invCtx = new ControllerExecutionContext(
-                context, this.Meta.ControllerInstance, this.RouteData);
+                context, this.Meta.ControllerInstance, this.RouteData, this.Meta.ControllerDescriptor);
 
             first.Invoke(invCtx);
         }

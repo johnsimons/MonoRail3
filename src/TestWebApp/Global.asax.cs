@@ -2,14 +2,12 @@ namespace TestWebApp
 {
     using System;
     using System.Web.Routing;
-    using Castle.MonoRail.Hosting;
+    using Castle.MonoRail.Hosting.Mvc;
 
     public class Global : System.Web.HttpApplication
     {
         public static void RegisterRoutes(RouteCollection routes)
         {
-            // routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
-
             routes.Add(
                 new Route("{controller}/{action}/{id}",
                      new RouteValueDictionary(new { controller = "home", action = "index", id = "" }),

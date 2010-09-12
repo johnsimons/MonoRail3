@@ -1,4 +1,4 @@
-﻿namespace Castle.MonoRail.Framework
+﻿namespace Castle.MonoRail.Hosting.Mvc.Typed
 {
     using System;
     using System.ComponentModel.Composition;
@@ -8,8 +8,7 @@
     {
         public override void Invoke(ControllerExecutionContext executionCtx)
         {
-            if (executionCtx.ActionMethod != null)
-                executionCtx.ActionMethod.Invoke(executionCtx.Controller, null);
+            executionCtx.SelectedAction.Action(executionCtx.Controller, new object[0]);
         }
     }
 }

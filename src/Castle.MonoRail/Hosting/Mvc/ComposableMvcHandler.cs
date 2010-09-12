@@ -1,10 +1,9 @@
-﻿namespace Castle.MonoRail.Hosting
+﻿namespace Castle.MonoRail.Hosting.Mvc
 {
     using System.ComponentModel.Composition;
     using System.Diagnostics.Contracts;
     using System.Web;
     using System.Web.Routing;
-    using Primitives;
 
     [Export(typeof(IComposableHandler))]
     public class ComposableMvcHandler : ComposableHandler

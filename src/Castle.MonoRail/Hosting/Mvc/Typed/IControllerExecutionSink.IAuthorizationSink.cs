@@ -1,4 +1,4 @@
-namespace Castle.MonoRail.Framework
+namespace Castle.MonoRail.Hosting.Mvc.Typed
 {
     // Second to be executed
     public interface IAuthorizationSink : IControllerExecutionSink

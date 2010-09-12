@@ -1,4 +1,4 @@
-namespace Castle.MonoRail.Primitives
+namespace Castle.MonoRail.Hosting.Mvc
 {
     using System.ComponentModel.Composition;
     using System.Web;

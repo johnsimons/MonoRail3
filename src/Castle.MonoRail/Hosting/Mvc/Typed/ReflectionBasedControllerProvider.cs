@@ -1,4 +1,4 @@
-namespace Castle.MonoRail.Framework
+namespace Castle.MonoRail.Hosting.Mvc.Typed
 {
     using System;
     using System.Collections.Generic;
@@ -7,7 +7,8 @@ namespace Castle.MonoRail.Framework
     using System.Linq;
     using System.Web;
     using System.Web.Routing;
-    using Internal;
+    using Hosting.Mvc.Typed;
+    using Hosting.Mvc.Typed.Internal;
     using Primitives;
 
     [Export(typeof(ControllerProvider))]
@@ -15,6 +16,9 @@ namespace Castle.MonoRail.Framework
     public class ReflectionBasedControllerProvider : ControllerProvider
     {
         private List<Tuple<string,Type>> _validTypes;
+
+        [Import]
+        public ControllerDescriptorBuilder DescriptorBuilder { get; set; }
 
         [ImportingConstructor]
         public ReflectionBasedControllerProvider(IAssembliesSource source)
@@ -45,14 +49,10 @@ namespace Castle.MonoRail.Framework
             if (controllerType == null)
                 return null;
 
+            var descriptor = DescriptorBuilder.Build(controllerType);
+
             var controller = Activator.CreateInstance(controllerType);
-            var meta = new ControllerMeta(controller);
-
-
-            // Who should read the action - preferably only once
-//            var action = (string)data.Values["action"];
-//            meta.Metadata["controller.from"] = "simpletype";
-//            meta.Metadata["controller.action"] = action;
+            var meta = new TypedControllerMeta(controller, descriptor);
 
             return meta;
         }

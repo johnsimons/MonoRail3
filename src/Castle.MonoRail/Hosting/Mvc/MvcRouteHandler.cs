@@ -1,4 +1,4 @@
-namespace Castle.MonoRail.Hosting
+namespace Castle.MonoRail.Hosting.Mvc
 {
     using System;
     using System.Web;

@@ -1,21 +1,35 @@
-namespace Castle.MonoRail.Framework
+namespace Castle.MonoRail.Hosting.Mvc.Typed
 {
     using System;
+    using System.Linq;
     using System.ComponentModel.Composition;
     using System.Reflection;
+    using System.Web;
 
     [Export(typeof(IActionResolutionSink))]
     public class ActionResolutionSink : BaseControllerExecutionSink, IActionResolutionSink
     {
-        private const BindingFlags flags = BindingFlags.Public | BindingFlags.Instance | BindingFlags.IgnoreCase;
-
         public override void Invoke(ControllerExecutionContext executionCtx)
         {
             var action = executionCtx.RouteData.GetRequiredString("action");
-            var instance = executionCtx.Controller;
 
-            var actionMethod = instance.GetType().GetMethod(action, flags);
-            executionCtx.ActionMethod = actionMethod;
+            var selectedActions = 
+                executionCtx.ControllerDescriptor.Actions.
+                    Where(ad => string.Compare(ad.Name, action, StringComparison.OrdinalIgnoreCase) == 0).ToList();
+
+            if (selectedActions.Count > 1)
+            {
+                // disambiguation here?
+            }
+            else
+            {
+                var selectedAction = selectedActions.FirstOrDefault();
+                
+                if (selectedAction == null)
+                    throw new HttpException(404, "'action' not found");
+
+                executionCtx.SelectedAction = selectedAction;
+            }
 
             Proceed(executionCtx);
         }

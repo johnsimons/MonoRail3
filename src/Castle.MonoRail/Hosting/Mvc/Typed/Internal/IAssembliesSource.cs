@@ -1,4 +1,4 @@
-namespace Castle.MonoRail.Framework.Internal
+namespace Castle.MonoRail.Hosting.Mvc.Typed.Internal
 {
     using System.Collections.Generic;
     using System.Reflection;

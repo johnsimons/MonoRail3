@@ -1,4 +1,4 @@
-namespace Castle.MonoRail.Framework
+namespace Castle.MonoRail.Hosting.Mvc.Typed
 {
     // do we need sentinels between buckets to enforce a sane status? 
     // i.e. confirm expectations/validate assumptions

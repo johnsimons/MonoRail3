@@ -1,19 +1,15 @@
-﻿namespace Castle.MonoRail.Primitives
+﻿namespace Castle.MonoRail.Hosting.Mvc
 {
     using System.Collections.Generic;
     using System.ComponentModel.Composition;
     using System.Web;
     using System.Web.Routing;
+    using Primitives;
 
     [Export]
     [PartCreationPolicy(CreationPolicy.Shared)]
     public class PipelineRunner
     {
-        [Import]
-        public ControllerProvider P1 { get; set; }
-        // [Import]
-        //public ControllerExecutorProvider P2 { get; set; }
-
         [ImportMany]
         public IEnumerable<ControllerProvider> ControllerProviders { get; set; }
 

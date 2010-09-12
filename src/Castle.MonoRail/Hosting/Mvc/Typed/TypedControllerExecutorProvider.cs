@@ -1,4 +1,4 @@
-namespace Castle.MonoRail.Framework
+namespace Castle.MonoRail.Hosting.Mvc.Typed
 {
     using System.ComponentModel.Composition;
     using System.Web;
@@ -14,12 +14,17 @@ namespace Castle.MonoRail.Framework
 
         public override ControllerExecutor CreateExecutor(ControllerMeta meta, RouteData data, HttpContextBase context)
         {
-            var executor = ExecutorFactory.CreateExport().Value;
+            if (meta is TypedControllerMeta)
+            {
+                var executor = ExecutorFactory.CreateExport().Value;
 
-            executor.Meta = meta;
-            executor.RouteData = data;
+                executor.Meta = meta as TypedControllerMeta;
+                executor.RouteData = data;
 
-            return executor;
+                return executor;
+            }
+
+            return null;
         }
     }
 }

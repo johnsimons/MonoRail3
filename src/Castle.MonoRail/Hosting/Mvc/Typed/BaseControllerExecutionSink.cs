@@ -1,4 +1,4 @@
-﻿namespace Castle.MonoRail.Framework
+﻿namespace Castle.MonoRail.Hosting.Mvc.Typed
 {
     public abstract class BaseControllerExecutionSink : IControllerExecutionSink
     {

@@ -63,12 +63,20 @@
     <Reference Include="System.Web" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FilterProvider.cs" />
     <Compile Include="Hosting\ComposableHandler.cs" />
     <Compile Include="Hosting\IComposableHandler.cs" />
     <Compile Include="Hosting\IComposableModule.cs" />
     <Compile Include="Hosting\Internal\ContainerManager.cs" />
     <Compile Include="Hosting\Internal\PartitionedCatalog.cs" />
     <Compile Include="Hosting\Mvc\ComposableMvcHandler.cs" />
+    <Compile Include="Hosting\Mvc\Typed\Internal\ActionDescriptor.cs" />
+    <Compile Include="Hosting\Mvc\Typed\Internal\ControllerDescriptorBuilder.cs" />
+    <Compile Include="Hosting\Mvc\Typed\Internal\FilterDescriptor.cs" />
+    <Compile Include="Hosting\Mvc\Typed\Internal\MethodInfoActionDescriptor.cs" />
+    <Compile Include="Hosting\Mvc\Typed\Internal\ParameterDescriptor.cs" />
+    <Compile Include="Hosting\Mvc\Typed\TypedControllerMeta.cs" />
+    <Compile Include="IExceptionFilter.cs" />
     <Compile Include="Primitives\ControllerExecutor.cs" />
     <Compile Include="Primitives\ControllerExecutorProvider.cs" />
     <Compile Include="Primitives\ControllerMeta.cs" />
@@ -79,7 +87,7 @@
     <Compile Include="Hosting\Mvc\Typed\Internal\ControllerDescriptor.cs" />
     <Compile Include="Hosting\Mvc\Typed\Internal\IAssembliesSource.cs" />
     <Compile Include="Hosting\Mvc\MvcRouteHandler.cs" />
-    <Compile Include="Primitives\RequestParser.cs" />
+    <Compile Include="Hosting\Mvc\RequestParser.cs" />
     <Compile Include="Controller.cs" />
     <Compile Include="Hosting\Mvc\Typed\ActionResolutionSink.cs" />
     <Compile Include="Hosting\Mvc\Typed\BaseControllerExecutionSink.cs" />
@@ -90,7 +98,7 @@
     <Compile Include="Hosting\Mvc\Typed\IControllerExecutionSink.IActionExecutionSink.cs" />
     <Compile Include="Hosting\Mvc\Typed\IControllerExecutionSink.IActionResultSink.cs" />
     <Compile Include="Hosting\Mvc\Typed\IControllerExecutionSink.cs" />
-    <Compile Include="Primitives\PipelineRunner.cs" />
+    <Compile Include="Hosting\Mvc\PipelineRunner.cs" />
     <Compile Include="Hosting\Mvc\Typed\ReflectionBasedControllerProvider.cs" />
     <Compile Include="Hosting\Mvc\Typed\TypedControllerExecutor.cs" />
     <Compile Include="Hosting\Mvc\Typed\TypedControllerExecutorProvider.cs" />
