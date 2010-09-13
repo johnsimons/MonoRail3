@@ -4,12 +4,16 @@
     using System.ComponentModel.Composition;
     using System.Net;
     using System.Web;
+    using Internal;
     using Typed.Internal;
 
     [Export(typeof(IViewEngine))]
     [PartCreationPolicy(CreationPolicy.Shared)]
     public class WebFormsViewEngine : VirtualPathProviderViewEngine
     {
+        [Import]
+        public IHostingBridge HostingBridge { get; set; }
+
         [Import]
         public IWebFormFactory WebFormFactory { get; set; } 
 
@@ -50,36 +54,7 @@
 
         protected override bool FileExists(string path)
         {
-            try
-            {
-                object page = WebFormFactory.CreateInstanceFromVirtualPath(path, typeof(object));
-                if (page is IDisposable)
-                {
-                    (page as IDisposable).Dispose();
-                }
-                return page != null;
-            }
-            catch (HttpException he)
-            {
-                if (he is HttpParseException)
-                {
-                    // The build manager found something, but instantiation failed due to a runtime lookup failure
-                    throw;
-                }
-
-                if (he.GetHttpCode() == (int)HttpStatusCode.NotFound)
-                {
-                    // If BuildManager returns a 404 (Not Found) that means that a file did not exist.
-                    // If the view itself doesn't exist, then this method should report that rather than throw an exception.
-                    if (!base.FileExists(path))
-                    {
-                        return false;
-                    }
-                }
-
-                // All other error codes imply other errors such as compilation or parsing errors
-                throw;
-            }
+            return HostingBridge.FileExists(path);
         }
     }
 }

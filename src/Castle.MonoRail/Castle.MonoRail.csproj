@@ -82,8 +82,8 @@
     </Compile>
     <Compile Include="Hosting\Mvc\Typed\ControllerDescriptorBuilder.cs" />
     <Compile Include="Hosting\Mvc\Typed\FilterDescriptor.cs" />
-    <Compile Include="Hosting\Mvc\Typed\Internal\IWebFormFactory.cs" />
-    <Compile Include="Hosting\Mvc\Typed\Internal\MonoRailServices.cs" />
+    <Compile Include="WebForms\IWebFormFactory.cs" />
+    <Compile Include="Hosting\Mvc\Internal\MonoRailServices.cs" />
     <Compile Include="Hosting\Mvc\Typed\MethodInfoActionDescriptor.cs" />
     <Compile Include="Hosting\Mvc\Typed\ParameterDescriptor.cs" />
     <Compile Include="Hosting\Mvc\Typed\TypedControllerMeta.cs" />
@@ -105,8 +105,8 @@
     <Compile Include="Primitives\ControllerProvider.cs" />
     <Compile Include="ActionResult.cs" />
     <Compile Include="Hosting\Mvc\Typed\ActionExecutionSink.cs" />
-    <Compile Include="Hosting\Mvc\Typed\Internal\BuildManagerWrap.cs" />
-    <Compile Include="Hosting\Mvc\Typed\Internal\IAssembliesSource.cs" />
+    <Compile Include="Hosting\Mvc\Internal\BuildManagerWrap.cs" />
+    <Compile Include="Hosting\Mvc\Internal\IHostingBridge.cs" />
     <Compile Include="Hosting\Mvc\MvcRouteHandler.cs" />
     <Compile Include="Hosting\Mvc\RequestParser.cs" />
     <Compile Include="Controller.cs" />

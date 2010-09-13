@@ -8,6 +8,7 @@ namespace Castle.MonoRail.Hosting.Mvc.Typed
     using System.Web;
     using System.Web.Routing;
     using Hosting.Mvc.Typed.Internal;
+    using Mvc.Internal;
     using Primitives;
 
     [Export(typeof(ControllerProvider))]
@@ -20,13 +21,13 @@ namespace Castle.MonoRail.Hosting.Mvc.Typed
         public ControllerDescriptorBuilder DescriptorBuilder { get; set; }
 
         [ImportingConstructor]
-        public ReflectionBasedControllerProvider(IAssembliesSource source)
+        public ReflectionBasedControllerProvider(IHostingBridge source)
         {
             Contract.Requires(source != null);
             Contract.EndContractBlock();
 
             _validTypes = new List<Tuple<string, Type>>(
-                source.Assemblies.SelectMany(a => a.GetTypes()).
+                source.ReferenceAssemblies.SelectMany(a => a.GetTypes()).
                     Where(t => t.Name.EndsWith("Controller") && !t.IsAbstract).
                     Select(t => new Tuple<string, Type>(
                         t.Name.Substring(0, t.Name.Length - "Controller".Length).ToLowerInvariant(), t)));

@@ -1,6 +1,7 @@
 ﻿namespace Castle.MonoRail
 {
     using System;
+    using System.Linq;
     using System.Web;
     using Hosting.Mvc;
 
@@ -25,13 +26,18 @@
                 {
                     result.View.Process(
                         new ViewContext(
-                            new HttpContextWrapper(HttpContext.Current), HttpContext.Current.Response.Output), 
+                            new HttpContextWrapper(HttpContext.Current), HttpContext.Current.Response.Output),
                         HttpContext.Current.Response.Output);
                 }
                 finally
                 {
                     result.ViewEngine.Release(result.View);
                 }
+            }
+            else
+            {
+                throw new Exception("Could not find view " + _viewName + 
+                    ". Searched at " + string.Join(", ", result.SearchedLocations));
             }
         }
     }

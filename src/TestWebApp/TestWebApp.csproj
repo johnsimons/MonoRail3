@@ -41,6 +41,9 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Web" />
+    <Reference Include="System.Web.Mvc, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Aliases>ms</Aliases>
+    </Reference>
     <Reference Include="System.Web.Routing" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Xml" />
@@ -51,7 +54,7 @@
     <Content Include="Scripts\jquery-1.4.1-vsdoc.js" />
     <Content Include="Scripts\jquery-1.4.1.js" />
     <Content Include="Scripts\jquery-1.4.1.min.js" />
-    <Content Include="Views\Home\index.aspx" />
+    <Content Include="Views\Home\about.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -66,8 +69,14 @@
     <Compile Include="Model\Issue.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
+    <None Include="Views\Home\index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Castle.MonoRail.Razor\Castle.MonoRail.Razor.csproj">
+      <Project>{878C7162-F920-4C76-88C0-DEDF2B438B0C}</Project>
+      <Name>Castle.MonoRail.Razor</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Castle.MonoRail\Castle.MonoRail.csproj">
       <Project>{188A7405-F116-4EE6-926D-4207920432E8}</Project>
       <Name>Castle.MonoRail</Name>
