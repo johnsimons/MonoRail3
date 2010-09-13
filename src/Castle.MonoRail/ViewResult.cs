@@ -8,11 +8,14 @@
     public class ViewResult : ActionResult
     {
         private readonly string _viewName;
+        private readonly object _model;
 
         public ViewResult(string viewName)
         {
             _viewName = viewName;
         }
+
+
 
         public override void Execute(ActionResultContext context, IMonoRailServices services)
         {

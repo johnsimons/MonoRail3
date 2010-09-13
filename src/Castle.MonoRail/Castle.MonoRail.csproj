@@ -63,6 +63,7 @@
     <Reference Include="System.Web" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ActionResultContext.cs" />
     <Compile Include="Hosting\Mvc\CompositeViewEngine.cs" />
     <Compile Include="Hosting\Mvc\BaseMvcContext.cs" />
     <Compile Include="FilterProvider.cs" />
