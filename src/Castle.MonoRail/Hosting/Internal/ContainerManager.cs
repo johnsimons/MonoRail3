@@ -93,7 +93,7 @@ namespace Castle.MonoRail.Hosting.Internal
             _requestCatalog = partitioned;
             _catalog = partitioned.Complement;
 
-            var container = new CompositionContainer(_catalog); // needs to be made thread-safe
+            var container = new CompositionContainer(_catalog, true); // needs to be made thread-safe
 
             return container;
         }

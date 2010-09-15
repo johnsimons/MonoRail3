@@ -5,7 +5,6 @@
 /src/Experiment/TestWebApp/bin/
 /src/Experiment/TestWebApp/obj/
 
-AssemblyInfo.cs
 
 # Standard VS.NET and ReSharper Foo
 src/*/obj
